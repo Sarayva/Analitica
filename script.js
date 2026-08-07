@@ -94,18 +94,13 @@ function renderHistorico() {
 
 // ALGORITMOS NÚCLEO
 function aplicarPrecoPsicologico(precoAlvo) {
-    let tentarPreco = precoAlvo - 0.01;
-    let inteiro = Math.floor(tentarPreco);
-    let centavos = Math.round((tentarPreco - inteiro) * 100);
+    let inteiro = Math.floor(precoAlvo);
+    let centavos = parseFloat((precoAlvo - inteiro).toFixed(2));
 
-    if (centavos === 99) return inteiro + 0.99;
-    let ultimoDigito = centavos % 10;
-    if (ultimoDigito === 9) {
-        return inteiro + (centavos / 100);
+    if (centavos <= 0.50) {
+        return inteiro + 0.49;
     } else {
-        let novosCentavos = Math.floor(centavos / 10) * 10 - 1;
-        if (novosCentavos < 0) { novosCentavos = 99; inteiro -= 1; }
-        return inteiro + (novosCentavos / 100);
+        return inteiro + 0.99;
     }
 }
 
