@@ -155,9 +155,11 @@
         }
 
         .logo-img {
-            height: 90px;
+            height: 130px;
+            width: auto;
             object-fit: contain;
             filter: drop-shadow(0 4px 15px rgba(0,0,0,0.1));
+            margin-left: -1rem; /* Caso a imagem tenha bordas/espaços invisíveis */
         }
         
         body.dark-mode .logo-img {
